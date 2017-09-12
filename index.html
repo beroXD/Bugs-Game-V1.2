@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>BUGs GAME</title>
+
+	<!-- fonts -->
+	<link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<div class="row player">
+		<!-- sound button -->
+		<a id="on" class="vol col-md-6 fontawesome-volume-up"></a>
+		<a id="off" class="vol col-md-6 fontawesome-volume-off"></a>
+
+		<!-- score and life -->
+		<p>SCORE <br><span id="score">0</span><img src="images/Star.png"></p>
+		<p>LIFE <br><span id="life">3</span><img src="images/Heart.png"></p>
+	</div>
+
+	<!-- Help Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="myModalLabel">Instructions</h4>
+				</div>
+				<div class="modal-body">
+					<div class="message">
+						<p>Use <mark class="arrow">Arrows</mark> to move around and reache the water.</p>
+						<p>Beware the <mark class="bug">BUGS</mark>, they are evil and will eat you! <img class="instr" src="images/enemy-bug.png"></p>
+
+						<p>But don't worry, you can pick up hearts to live longer. <img class="instr" src="images/Heart.png"></p>
+
+						<p>To win you have to score <br><mark class="points">100 POINTS!</mark></p>
+						<p>Want some help with that?</p>
+						<p>Pick up stars on your way to the water and BOOM extra 5 POINT!!!</p>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-info btn-lg" data-dismiss="modal" id="play">PLAY!</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Win Modal -->
+	<div class="modal fade" id="win" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-body">
+					<div class="endmessg">
+						<p>YOU WON!!!! 💥</p>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-info btn-lg" data-dismiss="modal" id="playag">PLAY AGAIN!</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Lose Modal -->
+	<div class="modal fade" id="lose" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-body">
+					<div class="endmessg">
+						<p>GAME OVER 😓☠️</p>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-info btn-lg" data-dismiss="modal" id="loseplay">PLAY AGAIN!</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/resources.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/engine.js"></script>
+</body>
+
+</html>
