@@ -73,6 +73,7 @@ var enemyList = [
 		'images/enemy-bug7.png'
 ];
 
+
 //***********ENEMY CLASS*****************
 // using pesudoclasses
 // Enemies our player must avoid
@@ -129,6 +130,77 @@ Enemy.prototype.render = function () {
 	ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+
+//*******************SUBENEMY CLASS********************
+
+var EnemySub = function (x, y, speed) {
+	// Variables applied to each of our instances go here,
+	// we've provided one for you to get started
+	// The image/sprite for our enemies, this uses
+	// a helper we've provided to easily load images
+	this.sprite = 'images/enemy-bug3.png';
+
+	//x and y initial enemy position
+	this.x = x;
+	this.y = y;
+
+	//speed of enemy
+	this.speed = speed;
+
+	// Did not work properly
+	//using Math.random function to generate a random number
+	//the speed of the enemy will change
+	//Math.floor(Math.random() * 210 + 150);
+};
+
+// Update the enemy position, required method for game
+// Parameter: dt, a time delta between ticks
+EnemySub.prototype.update = function (dt) {
+	// You should multiply any movement by the dt parameter
+	// which will ensure the game runs at the same speed for
+	// all computers.
+	this.x = this.x + this.speed * dt;
+	this.offScreenX = 505;
+	this.startingX = -100;
+	if (this.x >= this.offScreenX) {
+		this.x = this.startingX;
+		this.randomSpeed();
+	}
+	// This is not working properly
+	// tried diffrent method from https://github.com/lacyjpr/arcade/blob/master/js/app.js
+	//	if (this.x < 502) {
+	//		this.x += this.speed * dt;
+	//	} else {
+	//		this.x = -70;
+	//	}
+};
+
+// Random speed generator
+EnemySub.prototype.randomSpeed = function () {
+	// Speed is a random number from 1-10 times 40
+	this.speed = 40 * Math.floor(Math.random() * 10 + 1);
+};
+
+// Draw the enemy on the screen, required method for game
+EnemySub.prototype.render = function () {
+	ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
+
+
+/* This is a subclass but did not work
+ask about it */
+//var Subenemy = function (x, y, speed) {
+//	Enemy.call(this, x, y, speed);
+//	this.sprite = 'images/enemy-bug3.png';
+//};
+//
+//Subenemy.prototype = Object.create(Enemy.prototype);
+//
+//Subenemy.prototype.render = function () {
+//	ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+//};
+//
+//var type = new Subenemy();
 
 //***********PLAYER CLASS*****************
 // Now write your own player class
@@ -324,9 +396,10 @@ var allEnemies = [];
 
 for (var i = 0; i < 5; i++) {
 	//startSpeed is a random number from 1-10 times 60
-	var startSpeed = 60 * Math.floor(Math.random() * 10 + 1);
+	var startSpeed = 20 * Math.floor(Math.random() * 10 + 1);
 	//enemys start off canvas (x = -100) at the following Y positions: 60, 145, 230
 	allEnemies.push(new Enemy(-100, 60 + (85 * i), startSpeed));
+	allEnemies.push(new EnemySub(-100, 60 + (85 * i), startSpeed));
 }
 
 // Diffrent method
