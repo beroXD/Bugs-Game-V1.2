@@ -11,9 +11,6 @@ Here is a helpful tutorial that helped me with this project.
 * Extract the files.
 * Open the index file in browser to play.
 
-OR
-* Play it [here](https://beroxd.github.io./)
-
 ## How To Play
 
 * Use the arrow keys to move UP, DOWN, LEFT and RIGHT.
